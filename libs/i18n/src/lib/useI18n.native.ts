@@ -1,7 +1,3 @@
-'use client';
-
-// Next.js Web 전용 useI18n 훅
-// React Native용은 useI18n.native.ts 파일을 사용합니다
 import { useTranslation } from 'react-i18next';
 
 export type Language = 'ko' | 'en';

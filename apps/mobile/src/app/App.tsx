@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useRef, useState } from 'react';
 import {
   SafeAreaView,
@@ -11,10 +10,12 @@ import {
   Linking,
 } from 'react-native';
 import Svg, { G, Path } from 'react-native-svg';
+import { useI18n, LanguageSelector, I18nProvider } from '@dc-frontend-monorepo/i18n';
 
-export const App = () => {
+const AppContent = () => {
   const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
   const scrollViewRef = useRef<null | ScrollView>(null);
+  const { t } = useI18n();
 
   return (
     <>
@@ -32,14 +33,17 @@ export const App = () => {
           style={styles.scrollView}
         >
           <View style={styles.section}>
-            <Text style={styles.textLg}>Hello there,</Text>
+            <Text style={styles.textLg}>{t('hello')},</Text>
             <Text
               style={[styles.textXL, styles.appTitleText]}
               testID="heading"
               role="heading"
             >
-              Welcome Mobile 👋
+              {t('welcome')} Mobile 👋
             </Text>
+            <View style={{ marginTop: 20 }}>
+              <LanguageSelector />
+            </View>
           </View>
           <View style={styles.section}>
             <View style={styles.hero}>
@@ -594,6 +598,14 @@ export const App = () => {
         </ScrollView>
       </SafeAreaView>
     </>
+  );
+};
+
+export const App = () => {
+  return (
+    <I18nProvider>
+      <AppContent />
+    </I18nProvider>
   );
 };
 const styles = StyleSheet.create({

@@ -1,5 +1,6 @@
 import './global.css';
 import { StyledComponentsRegistry } from './registry';
+import { ClientProvider } from './ClientProvider';
 
 export const metadata = {
   title: 'Welcome to demo2',
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ClientProvider>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </ClientProvider>
       </body>
     </html>
   );

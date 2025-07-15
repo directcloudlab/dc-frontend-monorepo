@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import { useI18n, LanguageSelector } from '@dc-frontend-monorepo/i18n';
 
 const StyledPage = styled.div`
   .page {
@@ -7,6 +8,7 @@ const StyledPage = styled.div`
 `;
 
 export default function Index() {
+  const { t } = useI18n();
   /*
    * Replace the elements below with your own.
    *
@@ -18,9 +20,12 @@ export default function Index() {
         <div className="container">
           <div id="welcome">
             <h1>
-              <span> Hello there, </span>
-              Welcome web 👋
+              <span>{t('hello')} </span>
+              {t('welcome')} web 👋
             </h1>
+            <div style={{ marginTop: '20px' }}>
+              <LanguageSelector />
+            </div>
           </div>
 
           <div id="hero" className="rounded">

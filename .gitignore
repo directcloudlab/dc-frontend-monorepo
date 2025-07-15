@@ -4,3 +4,22 @@
 # Ignore node_modules directory
 node_modules/
 
+# Expo
+node_modules/
+.expo/
+.yarn/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+cache/
+
+# Next.js
+.next
+out
+apps/mobile-e2e/artifacts

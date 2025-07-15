@@ -1,0 +1,6 @@
+# Ignore NX related files and directories
+.nx/workspace-data
+
+# Ignore node_modules directory
+node_modules/
+

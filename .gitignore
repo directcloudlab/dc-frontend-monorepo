@@ -24,3 +24,5 @@ cache/
 .next
 out
 apps/mobile-e2e/artifacts
+
+storybook-static

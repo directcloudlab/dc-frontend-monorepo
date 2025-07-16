@@ -1,0 +1,28 @@
+#!/bin/sh
+# Validate commit message format
+# Format: type(scope): description
+# Example: feat(ui): add new button component
+
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,50}'
+
+if ! grep -qE "$commit_regex" "$1"; then
+    echo "❌ Invalid commit message format!"
+    echo ""
+    echo "Format: type(scope): description"
+    echo ""
+    echo "Types:"
+    echo "  feat:     새로운 기능"
+    echo "  fix:      버그 수정"
+    echo "  docs:     문서 변경"
+    echo "  style:    코드 포맷팅, 세미콜론 누락 등"
+    echo "  refactor: 코드 리팩토링"
+    echo "  test:     테스트 추가/수정"
+    echo "  chore:    빌드 프로세스 또는 보조 도구 변경"
+    echo "  perf:     성능 개선"
+    echo "  ci:       CI 설정 변경"
+    echo "  build:    빌드 시스템 변경"
+    echo "  revert:   이전 커밋 되돌리기"
+    echo ""
+    echo "Example: feat(web): add new button component"
+    exit 1
+fi

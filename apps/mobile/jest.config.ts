@@ -17,5 +17,8 @@ module.exports = {
     '^.+.(bmp|gif|jpg|jpeg|mp4|png|psd|svg|webp|ttf|otf|m4v|mov|mp4|mpeg|mpg|webm|aac|aiff|caf|m4a|mp3|wav|html|pdf|obj)$':
       require.resolve('jest-expo/src/preset/assetFileTransformer.js'),
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(?:.pnpm/)?((jest-)?react-native|@react-native|@react-native-community|@expo(?:nent)?|expo(?:nent)?|expo-modules|@expo-modules|@unimodules|unimodules|react-clone-referenced-element|react-native-.*|@react-navigation|@radonlab))',
+  ],
   coverageDirectory: '../../coverage/apps/mobile',
 };
